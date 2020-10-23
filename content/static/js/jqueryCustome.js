@@ -16882,13 +16882,13 @@ var effectTransfer = $.effects.effect.transfer = function( o, done ) {
 
 }));
 
-
+// работа со слайдером цены 
 $(function() {
     $( "#slider-range" ).slider({
         range: true,
         min: 0,
-        max: 75,
-        values: [ 0, 50 ],
+        max: 200,
+        values: [ 0, 200 ],
         slide: function( event, ui ) {
             $( "#amount" ).html( "Price : $" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
     $( "#amount1" ).val(ui.values[ 0 ]);

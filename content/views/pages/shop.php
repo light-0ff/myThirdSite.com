@@ -26,7 +26,6 @@
 								<ul class="list-unstyled viewFilterLinks d-flex flex-nowrap align-items-center">
 									<li class="mr-2"><a href="javascript:void(0);" class="active"><i class="fas fa-th-large"></i></a></li>
 									<li class="mr-2"><a href="javascript:void(0);"><i class="fas fa-list"></i></a></li>
-									<!-- <li class="mr-2">Showing 1–9 of 24 results</li> -->
 									<li class="mr-2">Showing <?php
 																$kakoi_raschot = 1 * (9 * (empty($_GET['cpage']) ? 1 : intval($_GET['cpage']) - 1) + 1);
 																echo  $kakoi_raschot . "-" . ($kakoi_raschot + count($data['posts']));
