@@ -26,7 +26,11 @@
 								<ul class="list-unstyled viewFilterLinks d-flex flex-nowrap align-items-center">
 									<li class="mr-2"><a href="javascript:void(0);" class="active"><i class="fas fa-th-large"></i></a></li>
 									<li class="mr-2"><a href="javascript:void(0);"><i class="fas fa-list"></i></a></li>
-									<li class="mr-2">Showing 1–9 of 24 results</li>
+									<!-- <li class="mr-2">Showing 1–9 of 24 results</li> -->
+									<li class="mr-2">Showing <?php
+																$kakoi_raschot = 1 * (9 * (empty($_GET['cpage']) ? 1 : intval($_GET['cpage']) - 1) + 1);
+																echo  $kakoi_raschot . "-" . ($kakoi_raschot + count($data['posts']));
+																?> of 24 results</li>
 								</ul>
 								<!-- sortGroup -->
 								<div class="sortGroup">
@@ -54,10 +58,10 @@
 										<div class="border">
 											<div class="imgHolder position-relative w-100 overflow-hidden">
 												<img src="<?php
-											echo $data['posts'][$i]['imgsrc']
-											?>" alt="<?php
-											echo $data['posts'][$i]['imgalt']
-											?>" class="img-fluid w-100">
+															echo $data['posts'][$i]['imgsrc']
+															?>" alt="<?php
+																		echo $data['posts'][$i]['imgalt']
+																		?>" class="img-fluid w-100">
 												<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
 													<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
 													<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
@@ -71,8 +75,8 @@
 											echo $data['posts'][$i]['id']
 											?>
 											 "><?php
-														echo $data['posts'][$i]['title']
-														?></a></span>
+												echo $data['posts'][$i]['title']
+												?></a></span>
 												<span class="price d-block fwEbold"><?php echo $data['posts'][$i]['price'] ?> $</span>
 											</div>
 										</div>
@@ -82,235 +86,7 @@
 								?>
 								<!-- =========================================================================================================== -->
 								<?php
-								/*
-								echo '
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-											<span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
-											<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block ml-8">Sale</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold">58.00 $</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold">60.00 $</span>
-											<span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-											<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block">Sale</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold">58.00 $</span>
-											<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block">Sale</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold">60.00 $</span>
-											<span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">HOT</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold">68.00 $</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold">58.00 $</span>
-											<span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">Hot</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-											<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block">Sale</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold"><del>80.50 $</del>68.00 $</span>
-											<span class="hotOffer green fwEbold text-uppercase text-white position-absolute d-block">Sale</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold">58.00 $</span>
-										</div>
-									</div>
-								</div>
-								<!-- featureCol -->
-								<div class="col-12 col-sm-6 col-lg-4 featureCol mb-7">
-									<div class="border">
-										<div class="imgHolder position-relative w-100 overflow-hidden">
-											<img src="http://placehold.it/270x300" alt="image description" class="img-fluid w-100">
-											<ul class="list-unstyled postHoverLinskList d-flex justify-content-center m-0">
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-heart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-cart d-block"></a></li>
-												<li class="mr-2 overflow-hidden"><a href="javascript:void(0);" class="icon-eye d-block"></a></li>
-												<li class="overflow-hidden"><a href="javascript:void(0);" class="icon-arrow d-block"></a></li>
-											</ul>
-										</div>
-										<div class="text-center py-5 px-4">
-											<span class="title d-block mb-2"><a href="shop-detail.html">Pellentesque aliquet</a></span>
-											<span class="price d-block fwEbold">58.00 $</span>
-											<span class="hotOffer fwEbold text-uppercase text-white position-absolute d-block">Hot</span>
-										</div>
-									</div>
-								</div>';
-								*/
+
 								?>
 								<div class="col-12 mb-sm-0 mb-6">
 									<!-- pagination -->
@@ -318,11 +94,23 @@
 										<?php
 										$currentPage = empty($_GET['cpage']) ? 1 : $currentPage = intval($_GET['cpage']);
 										$category_id = empty($_GET['category']) ? null : $category_id = intval($_GET['category']);
+										$min = empty($_GET['min']) ? 0 : $min = intval($_GET['min']);
+										$max = empty($_GET['max']) ? null : $max = intval($_GET['max']);
 										?>
-										<li class="page-item"><a class="page-link" href="/shop/?<?php if ($category_id != null) echo "category=$category_id&"; ?>cpage=1">В начало</a></li>
-										<li><a href="/shop/?
-								<?php
-								if ($category_id != null) echo "category=$category_id&"; ?>
+										<li class="page-item"><a class="page-link" href="/shop/?<?php
+																								if ($category_id != null) {
+																									echo "category=$category_id&";
+																								}
+																								if ($max != null) {
+																									echo "min=$min&max=$max&";
+																								}
+																								?>cpage=1">В начало</a></li>
+										<li><a href="/shop/?<?php
+															if ($category_id != null) echo "category=$category_id&";
+															if ($max != null) {
+																echo "min=$min&max=$max&";
+															}
+															?>
 								cpage=<?php echo $currentPage > 1 ? $currentPage - 1 : 1 ?>"><i class="fas fa-chevron-left"></i></a></li>
 										<!-- <li class="active"><a href="javascript:void(0);">1</a></li> -->
 										<!-- <li><a href="javascript:void(0);">2</a></li> -->
@@ -332,19 +120,24 @@
 										// varDump($data['pageCount']);
 										?>
 										<?php for ($i = 1; $i < $data['pageCount'] + 1; $i++) { ?>
-											<li class="<?php echo $i == $currentPage ? "active" : '' ?>"><a href="/shop/?
-								<?php
-											if ($category_id != null) echo "category=$category_id&";
-								?>cpage=
-								<?php
-											echo $i;
-								?>"><?php echo $i ?></a></li>
+											<li class="<?php echo $i == $currentPage ? "active" : '' ?>"><a href="/shop/?<?php
+																															if ($category_id != null) echo "category=$category_id&";
+																															if ($max != null) echo "min=$min&max=$max&";
+
+																															?>cpage=<?php
+																																	echo $i;
+																																	?>"><?php echo $i ?></a></li>
 										<?php } ?>
 										<!-- ----------------------------------------------------------------------- -->
-										<li><a href="/shop/?
-								<?php if ($category_id != null) echo "category=$category_id&"; ?>
+										<li><a href="/shop/?<?php
+															if ($category_id != null) echo "category=$category_id&";
+															if ($max != null) echo "min=$min&max=$max&";
+															?>
 								cpage=<?php echo $currentPage < $data['pageCount'] ? $currentPage + 1 : $data['pageCount'] ?>"><i class="fas fa-chevron-right"></i></a></li>
-										<li class="page-item"><a class="page-link" href="/shop/?<?php if ($category_id != null) echo "category=$category_id&"; ?>cpage=<?php echo  $data['pageCount'] ?>">В конец</a></li>
+										<li class="page-item"><a class="page-link" href="/shop/?<?php
+																								if ($category_id != null) echo "category=$category_id&";
+																								if ($max != null) echo "min=$min&max=$max&";
+																								?>cpage=<?php echo  $data['pageCount'] ?>">В конец</a></li>
 									</ul>
 								</div>
 							</div>
@@ -378,8 +171,8 @@
 										<li class="mb-5 overflow-hidden"><a href="http://mythirdsite.com/shop/?category=<?php echo $data['categories'][$i]['id'] ?>"><?php echo $data['categories'][$i]['category'] ?> <span class="num border float-right">6</span></a></li>
 									<?php
 									}
-									?>				
-								<!-- </ul> -->
+									?>
+									<!-- </ul> -->
 							</section>
 							<!-- widget -->
 							<section class="widget mb-9">
@@ -389,6 +182,7 @@
 									<div id="slider-range"></div>
 									<input type="hidden" id="amount1" name="min">
 									<input type="hidden" id="amount2" name="max">
+									<input type="hidden" id="categoryId" name="category" value="<?php echo empty($_GET['category']) ? null : $category_id = intval($_GET['category']); ?>">
 									<div class="get-results-wrap d-flex align-items-center justify-content-between">
 										<button type="submit" class="btn btnTheme btn-shop fwEbold md-round px-3 pt-1 pb-2 text-uppercase">Filter</button>
 										<p id="amount" class="mb-0"></p>
@@ -469,7 +263,7 @@
 				<section class="subscribeSecBlock bgCover col-12 pt-lg-24 pb-lg-12 pt-md-16 pb-md-8 py-10" style="background-image: url(http://placehold.it/1170x465)">
 					<header class="col-12 mainHeader mb-9 text-center">
 						<h1 class="headingIV playfair fwEblod mb-4">Subscribe Our Newsletter</h1>
-						<span class="headerBorder d-block mb-5"><img src="images/hbdr.png" alt="Header Border" class="img-fluid img-bdr"></span>
+						<span class="headerBorder d-block mb-5"><img src="/content/static/images/hbdr.png" alt="Header Border" class="img-fluid img-bdr"></span>
 						<p class="mb-6">Enter Your email address to join our mailing list and keep yourself update</p>
 					</header>
 					<form class="emailForm1 mx-auto overflow-hidden d-flex flex-wrap">
@@ -479,6 +273,3 @@
 				</section>
 			</div>
 		</main>
-
-
-	

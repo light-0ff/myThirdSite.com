@@ -70,6 +70,7 @@ namespace App {
             }
             $query = mb_substr($query, 0, mb_strlen($query) - 4);
             $query .= " ORDER BY $by $order LIMIT $min, $max";
+            // varDump($query);
             $sth = $this->dbh->prepare($query);
             $sth->execute($filter);
             return $sth->fetchAll(PDO::FETCH_ASSOC);
